@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/InsidePC/C.unity
     guid: ad71206afd61dc34c807394ba4065cc2
+  - enabled: 1
+    path: Assets/Scenes/Settings.unity
+    guid: 3e5acb1cfc3563641a63d91d02ee248a
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: 160dacb088f13a9459b3e43d641ba9b2
   m_configObjects: {}

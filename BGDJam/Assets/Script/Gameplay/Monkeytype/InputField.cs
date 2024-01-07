@@ -6,26 +6,73 @@ using UnityEngine.UI;
 
 public class InputField : MonoBehaviour
 {
-    public List<Word> words;
+    public List<Word> wordsEasy;
+    public List<Word> wordsMedium;
+    public List<Word> wordsHard;
     private TMP_InputField inputField;
     public TextMeshProUGUI wordTMP;
+    public string diff;
 
 
     private void Start()
     {
-        wordTMP.text = words[0].text;
+        Debug.Log(PlayerPrefs.GetString("TypingState"));
+        diff = PlayerPrefs.GetString("TypingSeed", "Easy");
+        if (diff == "Easy" && PlayerPrefs.GetString("TypingState") == "Active")
+        {
+            wordTMP.text = wordsEasy[0].text;
+        }
+        if (diff == "Medium" && PlayerPrefs.GetString("TypingState") == "Active")
+        {
+            wordTMP.text = wordsMedium[0].text;
+        }
+        if (diff == "Hard" && PlayerPrefs.GetString("TypingState") == "Active")
+        {
+            wordTMP.text = wordsHard[0].text;
+        }
         //nyari object inputfield buat diambil componentnya
         inputField = GameObject.Find("InputField").GetComponent<TMP_InputField>();
         inputField.Select();
     }
 
+    public void tryInput(string word)
+    {
+        try{
+            Input(word);
+        }
+        catch {
+            wordTMP.text = "";
+            PlayerPrefs.SetString("TypingState", "Cleared");
+            ClearInput();
+            inputField.ActivateInputField();
+        }
+    }
+
     public void Input(string word)
     {
-        //input handling disini, di compare sm string yg ada di list
-        if (word.Equals(words[0].text))
+        if (word.Equals(wordsEasy[0].text) && diff == "Easy")
         {
-            words.Remove(words[0]);
-            wordTMP.text = words[0].text;
+            wordsEasy.Remove(wordsEasy[0]);
+            if (PlayerPrefs.GetString("TypingState") == "Active")
+            {
+                wordTMP.text = wordsEasy[0].text;
+            }
+        }
+        if (word.Equals(wordsMedium[0].text) && diff == "Medium")
+        {
+            wordsMedium.Remove(wordsMedium[0]);
+            if (PlayerPrefs.GetString("TypingState") == "Active")
+            {
+                wordTMP.text = wordsMedium[0].text;
+            }
+        }
+        if (word.Equals(wordsHard[0].text) && diff == "Hard")
+        {
+            wordsHard.Remove(wordsHard[0]);
+            if (PlayerPrefs.GetString("TypingState") == "Active")
+            {
+                wordTMP.text = wordsHard[0].text;
+            }
         }
         ClearInput();
         inputField.ActivateInputField();

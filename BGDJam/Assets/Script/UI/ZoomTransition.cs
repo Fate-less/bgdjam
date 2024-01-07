@@ -20,19 +20,19 @@ public class ZoomTransition : MonoBehaviour
         if(sceneName == "PC")
         {
             LeanTween.scale(zoomObject, new Vector3(2, 2, 1f), 2).setEase(LeanTweenType.easeOutQuart);
-            LeanTween.moveLocal(zoomObject, new Vector2(423, 0), 2).setEase(LeanTweenType.easeOutQuart);
+            LeanTween.moveLocal(zoomObject, new Vector2(423, -123), 2).setEase(LeanTweenType.easeOutQuart);
             StartCoroutine(timer());
         }
         if(sceneName == "TwoStepVerification")
         {
             LeanTween.scale(zoomObject, new Vector3(2.5f, 2.5f, 1f), 2).setEase(LeanTweenType.easeOutQuart);
-            LeanTween.moveLocal(zoomObject, new Vector2(0, 0), 2).setEase(LeanTweenType.easeOutQuart);
+            LeanTween.moveLocal(zoomObject, new Vector2(0, -234), 2).setEase(LeanTweenType.easeOutQuart);
             StartCoroutine(timer());
         }
         if (sceneName == "SortingReports")
         {
             LeanTween.scale(zoomObject, new Vector3(2, 2, 1f), 2).setEase(LeanTweenType.easeOutQuart);
-            LeanTween.moveLocal(zoomObject, new Vector2(-523, 223), 2).setEase(LeanTweenType.easeOutQuart);
+            LeanTween.moveLocal(zoomObject, new Vector2(-423, 23), 2).setEase(LeanTweenType.easeOutQuart);
             StartCoroutine(timer());
         }
     }
