@@ -38,4 +38,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Shop.unity
     guid: 160dacb088f13a9459b3e43d641ba9b2
+  - enabled: 1
+    path: Assets/Scenes/TaskEnding.unity
+    guid: 204dcb9a0aa17da41a76db9eee15cb72
+  - enabled: 1
+    path: Assets/Scenes/ClearEnding.unity
+    guid: dad045e39b82d8f4188922c46220fe52
+  - enabled: 1
+    path: Assets/Scenes/TheIntro.unity
+    guid: 22fd08f69ae54d94e8446e7bc2863324
+  - enabled: 1
+    path: Assets/Scenes/SortingTutorial.unity
+    guid: 0353447096c4af44e80b502ee5837dff
   m_configObjects: {}

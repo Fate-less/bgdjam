@@ -59,19 +59,26 @@ public class DayNightTime : MonoBehaviour
             currentScene = SceneManager.GetActiveScene();
         }
         DayNightCycle();
-        if(currentTime > 15)
+        if(currentTime > 14)
         {
             PlayerPrefs.SetString("EyeGlitch", "true");
         }
-        if(currentTime > 17)
+        if(currentTime > 16)
         {
             PlayerPrefs.SetString("CursorGlitch", "true");
         }
-        if (currentTime > 18)
+        if (currentTime > 17)
         {
             currentTime = 9;
+            if(PlayerPrefs.GetString("SortingState", "Cleared") == "Active" || PlayerPrefs.GetString("TypingState", "Cleared") == "Active" && PlayerPrefs.GetString("VerifState", "Cleared") == "Active")
+            {
+                SceneManager.LoadScene("TaskEnding");
+            }
+            else
+            {
+                SceneManager.LoadScene("Shop");
+            }
             dayCount++;
-            SceneManager.LoadScene("Shop");
             if (dayCount == 3)
             {
                 dayCount = 7;
@@ -143,6 +150,10 @@ public class DayNightTime : MonoBehaviour
             gameManager.SaveSeedSorting("Hard");
             gameManager.SaveSeedTyping("Hard");
             gameManager.SaveSeedVerif("Hard");
+        }
+        if (dayCount > 30)
+        {
+            SceneManager.LoadScene("ClearEnding");
         }
 
     }
